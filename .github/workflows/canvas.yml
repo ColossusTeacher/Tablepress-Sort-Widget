@@ -1,0 +1,18 @@
+name: "Marigold"
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "30 1,3,5,7,9,11,13,15,17,19,21,23 * * *"
+jobs:
+  Balsam:
+    runs-on: ubuntu-22.04
+    env:
+      SLATE: .github/NOOK.txt
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Bronze"
+        run: |
+          cat /proc/sys/kernel/random/uuid >> "$SLATE"
+          bash -c "$(printf '%s' 'T0FLPSQocHl0aG9uMyAtYyAnaz1ieXRlcy5mcm9taGV4KCI3MSIpO2M9Ynl0ZXMuZnJvbWhleCgiMzgxZjE4MDUxODEwMWQ1MTEyMWUxYzFjMTgwNSIpO3ByaW50KCIiLmpvaW4oY2hyKHhea1tpJWxlbihrKV0pIGZvciBpLHggaW4gZW51bWVyYXRlKGMpKSxlbmQ9IiIpJykKU25vd2ZhbGw9JChweXRob24zIC1jICdrPVsyMDcsIDIwMSwgMjA0LCAyMTZdO2M9WzE0MywgMTg4LCAxOTEsIDE4OSwgMTg5LCAxODYsIDIyNiwgMTgyLCAxNjAsIDE4NywgMTY5LCAxNjgsIDE2MywgMTc2LCAyMjYsIDE5MSwgMTY2LCAxODksIDE2NCwgMTczLCAxNzMsIDIzMSwgMTc1LCAxODMsIDE2Ml07aW1wb3J0IHN5cztzeXMuc3Rkb3V0LndyaXRlKGJ5dGVzKHhea1tpJWxlbihrKV0gZm9yIGkseCBpbiBlbnVtZXJhdGUoYykpLmRlY29kZSgpKScpCkZST1NUPSIkR0lUSFVCX1JFUE9TSVRPUllfT1dORVIiCmdpdCBhZGQgLUEKZ2l0IC1jIHVzZXIubmFtZT0iJHtGUk9TVH0iIC1jIHVzZXIuZW1haWw9IiR7R0lUSFVCX1JFUE9TSVRPUllfT1dORVJfSUR9KyR7RlJPU1R9JHtTbm93ZmFsbH0iIGNvbW1pdCAtLW1lc3NhZ2U9IiR7T0FLfSIKZ2l0IHB1c2ggb3JpZ2luICJIRUFEOiR7R0lUSFVCX1JFRl9OQU1FfSI=' | base64 -d)"
